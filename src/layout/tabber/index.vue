@@ -7,7 +7,13 @@
     <div class="nav">
       <div id="nav-menu">
         <template v-for="(item, index) in tabbarList" :key="item.path">
-          <span class="active" :index="index" @click="goRoute(item.path)">
+          <span
+            :class="{
+              active: item.path == $router.currentRoute.value.fullPath,
+            }"
+            :index="index"
+            @click="goRoute(item.path)"
+          >
             {{ item.meta.title }}
           </span>
         </template>
@@ -19,8 +25,9 @@
 .tabbar {
   width: 100%;
   // height: 100%;
-  background-color: red;
+  background-color: #fff;
   justify-content: space-between;
+  border-bottom: #999 1px solid;
 
   .website-name {
     margin-left: 20px;
@@ -41,13 +48,17 @@
       justify-content: end;
       align-items: center;
       span {
+        display: inline-block;
+        margin-right: -1px;
         height: 32px;
         line-height: 32px;
-        text-align: center;
-        width: 60px;
-        border: blue 1px solid;
+        padding: 0 1em;
+        color: #444;
+        margin-bottom: -1px;
+        cursor: pointer;
         &.active {
-          border-bottom: none;
+          border: 1px solid #ddd;
+          border-bottom: 1px solid #fff;
         }
       }
     }
@@ -62,5 +73,11 @@ defineProps(['tabbarList'])
 
 const goRoute = (path: any) => {
   $router.push(path)
+}
+</script>
+
+<script lang="ts">
+export default {
+  name: 'Tabber',
 }
 </script>

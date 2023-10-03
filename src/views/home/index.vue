@@ -104,9 +104,15 @@
     </article>
   </div>
 </template>
+
+<script lang="ts">
+export default {
+  name: 'Home',
+}
+</script>
 <style scoped lang="scss">
 .res-cons {
-  background-color: greenyellow;
+  background-color: #fff;
   article {
     background-color: #fff;
     margin: {
@@ -115,6 +121,8 @@
     }
 
     header {
+      margin-bottom: 10px;
+      margin-top: 20px;
       .title {
         margin: 0 0 10px 0;
         color: #555;
@@ -132,12 +140,20 @@
       color: #999;
       font-size: 15px;
       display: inline-block;
+      margin-left: 10px;
+      span {
+        margin-left: 5 px;
+        display: inline-block;
+      }
     }
     .content {
       font-size: 1em;
       line-height: 1.8;
+      margin-top: 20px;
     }
     .readmore {
+      cursor: pointer;
+      margin-bottom: 4px;
       span {
         font-size: 14px;
         color: #444;
